@@ -2,12 +2,12 @@
 	font-family: 'Noto Sans JP';
 	font-style: normal;
 	font-weight: 400;
-	src: url('https://aaagamingcompany.github.io/font/notosansjp-light-webfont.eot'); /* IE9 Compat Modes */
+	src: url('https://aaa-gaming-company.github.io/font/notosansjp-light-webfont.eot'); /* IE9 Compat Modes */
 	src: local(''),
-		 url('https://aaagamingcompany.github.io/font/notosansjp-light-webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-		 url('https://aaagamingcompany.github.io/font/notosansjp-light-webfont.woff2') format('woff2'), /* Super Modern Browsers */
-		 url('https://aaagamingcompany.github.io/font/notosansjp-light-webfont.woff') format('woff'), /* Modern Browsers */
-		 url('https://aaagamingcompany.github.io/font/notosansjp-light-webfont.ttf') format('truetype'), /* Safari, Android, iOS */
-		 url('https://aaagamingcompany.github.io/font/notosansjp-light-webfont.svg#NotoSansJP') format('svg'); /* Legacy iOS */
+		 url('https://aaa-gaming-company.github.io/font/notosansjp-light-webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+		 url('https://aaa-gaming-company.github.io/font/notosansjp-light-webfont.woff2') format('woff2'), /* Super Modern Browsers */
+		 url('https://aaa-gaming-company.github.io/font/notosansjp-light-webfont.woff') format('woff'), /* Modern Browsers */
+		 url('https://aaa-gaming-company.github.io/font/notosansjp-light-webfont.ttf') format('truetype'), /* Safari, Android, iOS */
+		 url('https://aaa-gaming-company.github.io/font/notosansjp-light-webfont.svg#NotoSansJP') format('svg'); /* Legacy iOS */
   }
   
