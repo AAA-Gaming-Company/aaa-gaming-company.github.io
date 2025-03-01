@@ -1,0 +1,30 @@
+name: Automatic update
+
+on:
+  push:
+    branches: [ master ]
+    
+  workflow_dispatch:
+  repository_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.13'
+        cache: 'pip' # caching pip dependencies
+    - run: pip install -r requirements.txt
+    - name: Build files
+      run: python3 build.py --clean
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
+        publish_branch: gh-pages
+    - name: Tell google to check sitemap
+      run: sleep 30 && curl https://www.google.com/ping?sitemap=https://aaa-gaming-company.github.io/sitemap.xml

@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Google Alumni Sans Black';
+    src: url('Google-AlumniSans-Black.eot');
+    src: url('Google-AlumniSans-Black.eot?#iefix') format('embedded-opentype'),
+        url('Google-AlumniSans-Black.woff2') format('woff2'),
+        url('Google-AlumniSans-Black.woff') format('woff'),
+        url('Google-AlumniSans-Black.svg#Google-AlumniSans-Black') format('svg');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
