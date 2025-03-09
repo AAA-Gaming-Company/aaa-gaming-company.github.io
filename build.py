@@ -272,6 +272,10 @@ def build_sitemap():
             break
     assert root_found, "Root element not found in sitemap!"
 
+    # Create a robots.txt file
+    robots_raw = "User-agent: *\nAllow: /\n\nSitemap: " + WEBSITE_PREFIX + "/sitemap.xml"
+    write_file(os.path.join(OUTPUT_DIR, "robots.txt"), robots_raw)
+
     write_file(os.path.join(OUTPUT_DIR, "sitemap.xml"), "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" + ET.tostring(sitemap, pretty_print=True, encoding="unicode"))
 
 # --- Watch functions ---

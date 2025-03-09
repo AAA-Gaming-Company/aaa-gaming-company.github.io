@@ -27,5 +27,3 @@ jobs:
         publish_dir: ./dist
         publish_branch: gh-pages
         enable_jekyll: false
-    - name: Tell google to check sitemap
-      run: sleep 30 && curl https://www.google.com/ping?sitemap=https://aaa-gaming-company.github.io/sitemap.xml

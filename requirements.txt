@@ -1,2 +1,3 @@
 lxml
 watchdog
+beautifulsoup4
