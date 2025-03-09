@@ -2,11 +2,10 @@ import lxml.etree as ET
 import os
 import argparse
 import shutil
-import html
-import re
 import watchdog.events
 import watchdog.observers
 import time
+from bs4 import BeautifulSoup
 
 WEBSITE_PREFIX = "https://aaa-gaming-company.github.io"
 OUTPUT_DIR = "./dist"
@@ -136,14 +135,12 @@ def build_html_file(file_path: str) -> bool:
     source_tree = None
     output_tree = None
     try:
-        source = re.sub("\\&\\w+\\;", lambda x: html.escape(html.unescape(x.group(0))), source)
-        source_tree = ET.fromstring(source)
+        source_tree = ET.fromstring(source, parser=ET.HTMLParser())
     except ET.ParseError as e:
         print(f"\nError parsing file {file_path}: {e}")
         return False
     try:
-        output = re.sub("\\&\\w+\\;", lambda x: html.escape(html.unescape(x.group(0))), read_file(TEMPLATES["html"]))
-        output_tree = ET.fromstring(output)
+        output_tree = ET.fromstring(read_file(TEMPLATES["html"]), parser=ET.HTMLParser())
     except ET.ParseError as e:
         print(f"\nError parsing template file {TEMPLATES['html']}: {e}")
         return False
@@ -156,7 +153,7 @@ def build_html_file(file_path: str) -> bool:
         output_children = list(output)
 
         if len(source_children) == 0 or len(output_children) == 0:
-            if source.tag == output.tag:
+            if source.tag == output.tag and source.attrib == output.attrib:
                 return [(source, output)]
             else:
                 return []
@@ -165,7 +162,7 @@ def build_html_file(file_path: str) -> bool:
             tag_found = False
 
             for out_chld in output_children:
-                if src_chld.tag == out_chld.tag:
+                if src_chld.tag == out_chld.tag and src_chld.attrib == out_chld.attrib:
                     pairs.extend(find_last_common_pairs(src_chld, out_chld))
                     tag_found = True
                     break
@@ -182,10 +179,15 @@ def build_html_file(file_path: str) -> bool:
         if len(list(source)) > 0:
             output.extend(source)
         else:
-            output.text = source.text
+            if source.text is None:
+                output.append(source)
+            else:
+                output.text = (output.text or '') + (source.text or '')
 
     # Write the output to the file
-    raw_code = "<!DOCTYPE html>\n" + ET.tostring(output_tree, pretty_print=True, encoding="unicode", method="html")
+    raw_code = ET.tostring(output_tree, pretty_print=True, encoding="utf-8", method="html")
+    soup = BeautifulSoup(raw_code, "html.parser")
+    raw_code = "<!DOCTYPE html>\n" + soup.prettify(formatter="html5")
     write_file(file_path.replace(PUBLIC_DIR, OUTPUT_DIR), raw_code)
 
     return True
