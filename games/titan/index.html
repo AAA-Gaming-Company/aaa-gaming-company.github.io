@@ -1,99 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
-  <title>
-   Games - Titan
-  </title>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover" name="viewport">
-  <meta content="#1d1d1b" name="theme-color">
-  <link href="/css/main.css" rel="stylesheet">
-  <link href="/fonts/Google-Inter.css" rel="stylesheet">
-  <link href="/fonts/Google-AlumniSans-Black.css" rel="stylesheet">
-  <meta content="Titan: Deeper Than Dark" property="og:title">
-  <meta content="https://aaa-gaming-company.github.io/img/banners/titan.png" property="og:image">
-  <meta content="https://aaa-gaming-company.github.io/games/titan/" property="og:url">
-  <meta content="website" property="og:type">
-  <meta content="AAA Gaming Company" property="og:site_name">
-  <meta content="summary_large_image" name="twitter:card">
- </head>
- <body>
-  <header>
-   <a href="/">
-    <img class="logo" src="/img/logo.svg">
-   </a>
-  </header>
-  <hr class="header-spacing">
-  <main>
-   <section class="primary">
-    <h2>
-     What is Titan: Deeper Than Dark?
-    </h2>
-    <p>
-     This game was made for the Brackeys Game Jam 2023_2.
-    </p>
-    <p>
-     In this immersive underwater journey, you pilot your own submarine, navigating the mysterious ocean depths illuminated by bioluminescent fish. Along the way, you'll explore eerie environments, fend off hostile mechanical threats, and uncover the secrets lurking beneath the waves.
-    </p>
-   </section>
-   <div class="carrousel">
-    <div class="track">
-     <img alt="Screenshot" src="/img/screenshots/titan/screenshot-1.png">
-     <img alt="Screenshot" src="/img/screenshots/titan/screenshot-2.png">
-     <img alt="Screenshot" src="/img/screenshots/titan/screenshot-3.png">
-     <img alt="Screenshot" src="/img/screenshots/titan/screenshot-4.png">
-     <img alt="Screenshot" src="/img/screenshots/titan/screenshot-5.png">
-    </div>
-   </div>
-   <section class="secondary">
-    <h2>
-     Where can I play?
-    </h2>
-    <p>
-     A little note: This game utilizes compute shaders to simulate fish movement. Downloading the game as an app will provide much better performance and is
-     <strong>
-      HIGHLY RECOMMENDED
-     </strong>
-     . We don't really have time to fix this - nor do we know where to start on it - but the fish seem to act differently on WebGL (browser) builds.
-    </p>
-    <button data-redirect="https://aaagamingcompany.itch.io/titan/">
-     itch.io
-    </button>
-   </section>
-   <section class="tertiary">
-    <h2>
-     Credits
-    </h2>
-    <ul>
-     <li>
-      CarlitoChicken
-     </li>
-     <li>
-      Aidan Jack Barrett
-     </li>
-     <li>
-      Alex H.
-     </li>
-    </ul>
-   </section>
-  </main>
-  <footer>
-   <p>
-    &copy; 2018-2025 AAA Gaming Company
-   </p>
-   <p class="socials">
-    <a href="https://instagram.com/aaagamingcompany">
-     <img src="/img/socials/instagram.svg">
-    </a>
-    <a href="https://discord.gg/ebtv6GnNwG">
-     <img src="/img/socials/discord.svg">
-    </a>
-    <a href="https://aaagamingcompany.itch.io">
-     <img src="/img/socials/itchio.svg">
-    </a>
-   </p>
-  </footer>
-  <script src="/js/main.js">
-  </script>
- </body>
+  <head>
+    <title>Games - Titan</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#1d1d1b">
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/fonts/Google-Inter.css">
+    <link rel="stylesheet" href="/fonts/Google-AlumniSans-Black.css">
+  <meta property="og:title" content="Titan: Deeper Than Dark">
+    <meta property="og:image" content="https://aaa-gaming-company.github.io/img/banners/titan.png">
+    <meta property="og:url" content="https://aaa-gaming-company.github.io/games/titan/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="AAA Gaming Company">
+    <meta name="twitter:card" content="summary_large_image">
+  </head>
+  <body>
+    <header>
+      <a href="/"><img class="logo" src="/img/logo.svg"></a>
+    </header>
+
+    <hr class="header-spacing">
+    <main>
+    <section class="primary">
+        <h2>What is Titan: Deeper Than Dark?</h2>
+
+        <p>This game was made for the Brackeys Game Jam 2023_2.</p>
+        <p>In this immersive underwater journey, you pilot your own submarine, navigating the mysterious ocean depths illuminated by bioluminescent fish. Along the way, you'll explore eerie environments, fend off hostile mechanical threats, and uncover the secrets lurking beneath the waves.</p>
+      </section>
+
+      <div class="carrousel">
+        <div class="track">
+          <img src="/img/screenshots/titan/screenshot-1.png" alt="Screenshot">
+          <img src="/img/screenshots/titan/screenshot-2.png" alt="Screenshot">
+          <img src="/img/screenshots/titan/screenshot-3.png" alt="Screenshot">
+          <img src="/img/screenshots/titan/screenshot-4.png" alt="Screenshot">
+          <img src="/img/screenshots/titan/screenshot-5.png" alt="Screenshot">
+        </div>
+      </div>
+      <section class="secondary">
+        <h2>Where can I play?</h2>
+
+        <p>A little note: This game utilizes compute shaders to simulate fish movement. Downloading the game as an app will provide much better performance and is <strong>HIGHLY RECOMMENDED</strong>. We don't really have time to fix this - nor do we know where to start on it - but the fish seem to act differently on WebGL (browser) builds.</p>
+
+        <button data-redirect="https://aaagamingcompany.itch.io/titan/">itch.io</button>
+      </section>
+
+      <section class="tertiary">
+        <h2>Credits</h2>
+
+        <ul>
+          <li>CarlitoChicken</li>
+          <li>Aidan Jack Barrett</li>
+          <li>Alex H.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2018-2025 AAA Gaming Company</p>
+      <p class="socials">
+        <a href="https://instagram.com/aaagamingcompany"><img src="/img/socials/instagram.svg"></a>
+        <a href="https://discord.gg/ebtv6GnNwG"><img src="/img/socials/discord.svg"></a>
+        <a href="https://aaagamingcompany.itch.io"><img src="/img/socials/itchio.svg"></a>
+      </p>
+    </footer>
+
+    <script src="/js/main.js"></script>
+  </body>
 </html>

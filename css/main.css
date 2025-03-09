@@ -183,6 +183,27 @@ footer .socials img:hover {
     filter: brightness(0) saturate(100%) invert(30%) sepia(1%) saturate(29%) hue-rotate(341deg) brightness(92%) contrast(98%);
 }
 
+main a {
+    color: var(--background-text-color);
+    transition: opacity 0.3s;
+}
+main a:hover {
+    opacity: 0.8;
+}
+
+main .primary a {
+    color: var(--primary-text-color);
+}
+main .secondary a {
+    color: var(--secondary-text-color);
+}
+main .tertiary a {
+    color: var(--tertiary-text-color);
+}
+main .light a {
+    color: var(--light-background-text-color);
+}
+
 button {
     display: block;
     text-decoration: none;
@@ -194,7 +215,7 @@ button {
     font-size: 3em;
     background-color: var(--background-text-color);
     color: var(--background-color);
-    margin: 0 auto;
+    margin: 10px auto;
     box-sizing: border-box;
     transition: opacity 0.3s;
 }
@@ -251,12 +272,21 @@ hr {
     box-sizing: border-box;
 }
 
-/* This class is set on an element with three characters, each character will be in order primary, secondary and tertiary color */
+/* This class is set on an element with three characters, each character will be in order primary, secondary and tertiary color. We set each child element's color to the corresponding color */
+/* REmove the whitespace between the characters */
 .tricolor-a {
-    background: linear-gradient(to right, var(--primary-color), var(--primary-color) 33.33%, var(--secondary-color) 33.33%, var(--secondary-color) 66.66%, var(--tertiary-color) 66.66%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+.tricolor-a > * {
+    color: var(--primary-color);
+}
+.tricolor-a > *:nth-child(2) {
+    color: var(--secondary-color);
+}
+.tricolor-a > *:nth-child(3) {
+    color: var(--tertiary-color);
 }
 
 /* Page specific styles */
@@ -318,6 +348,10 @@ hr {
     background-color: var(--light-background-color);
     color: var(--light-background-text-color);
     padding: 20px;
+}
+
+.about-us h3 {
+    margin: 20px 0;
 }
 
 .game-box {
