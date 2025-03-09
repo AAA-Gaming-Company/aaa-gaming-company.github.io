@@ -285,11 +285,16 @@ hr {
     position: relative;
     background-color: var(--secondary-color);
     z-index: 1;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* Internet Explorer & Edge */
+    scrollbar-width: thin; /* Firefox */
+    -ms-overflow-style: auto; /* Internet Explorer & Edge */
+    scrollbar-color: var(--secondary-color) var(--secondary-color);
 }
 .carrousel::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera */
+}
+
+.carrousel:hover {
+    scrollbar-color: var(--background-color) var(--secondary-color);
 }
 
 .carrousel .track {
@@ -426,11 +431,15 @@ hr {
     text-align: left;
     font-size: 2.5em;
     margin: 0;
-    margin-bottom: 10px;
+}
+
+.devlog-posts .post .date {
+    font-size: 0.8em;
 }
 
 .devlog-posts .post p {
     margin: 0;
+    margin-top: 10px;
 }
 
 @media screen and (max-width: 800px) {
