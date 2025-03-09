@@ -261,9 +261,14 @@ def build_sitemap():
                 ET.SubElement(url, "lastmod").text = time.strftime("%Y-%m-%dT%H:%M:%S%z", time.gmtime(os.path.getmtime(file_path)))
                 ET.SubElement(url, "priority").text = "0.50" if is_image else "0.80"
 
-    # Set the root element priority to 1.00
-    assert sitemap[0][0].text == WEBSITE_PREFIX + "/"
-    sitemap[0][2].text = "1.00"
+    # Find the root element and set its priority to 1.00
+    root_found = False
+    for url in sitemap:
+        if url[0].text == WEBSITE_PREFIX + "/":
+            url[2].text = "1.00"
+            root_found = True
+            break
+    assert root_found, "Root element not found in sitemap!"
 
     write_file(os.path.join(OUTPUT_DIR, "sitemap.xml"), "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" + ET.tostring(sitemap, pretty_print=True, encoding="unicode"))
 
