@@ -185,9 +185,10 @@ def build_html_file(file_path: str) -> bool:
                 output.text = (output.text or '') + (source.text or '')
 
     # Write the output to the file
-    raw_code = ET.tostring(output_tree, pretty_print=True, encoding="utf-8", method="html")
-    soup = BeautifulSoup(raw_code, "html.parser")
-    raw_code = "<!DOCTYPE html>\n" + soup.prettify(formatter="html5")
+    raw_code = ET.tostring(output_tree, pretty_print=True, encoding="unicode", method="html")
+    # soup = BeautifulSoup(raw_code, "html.parser")
+    # raw_code = soup.prettify(formatter="html5")
+    raw_code = "<!DOCTYPE html>\n" + raw_code
     write_file(file_path.replace(PUBLIC_DIR, OUTPUT_DIR), raw_code)
 
     return True

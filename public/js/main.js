@@ -12,3 +12,16 @@ redirections.forEach(element => {
     window.location.href = url;
   });
 });
+
+// Set up tricolor AAA
+const tricolor = document.querySelectorAll("[data-tricolor-a]");
+tricolor.forEach(element => {
+  element.removeAttribute("data-tricolor-a");
+  //Validate old text
+  if (element.innerHTML.trim() !== "AAA") {
+    console.error("Tricolor element should be empty");
+    return;
+  }
+  element.classList.add("tricolor-a");
+  element.innerHTML = `<span>A</span><span>A</span><span>A</span>`;
+});
