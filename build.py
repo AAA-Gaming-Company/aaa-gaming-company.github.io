@@ -5,6 +5,7 @@ import shutil
 import watchdog.events
 import watchdog.observers
 import time
+import datetime
 from bs4 import BeautifulSoup
 
 WEBSITE_PREFIX = "https://aaa-gaming-company.github.io"
@@ -23,6 +24,19 @@ def read_file(file_path: str) -> str:
 def write_file(file_path: str, contents: str):
     with open(file_path, "w") as file:
         file.write(contents)
+
+def get_iso_timestamp(file_path: str) -> str:
+    # Get file modification time (epoch time)
+    mod_time = os.path.getmtime(file_path)
+
+    # Convert to UTC datetime
+    dt_utc = datetime.datetime.fromtimestamp(mod_time, tz=datetime.timezone.utc)
+
+    # Convert to local time with proper timezone offset
+    local_time = dt_utc.astimezone()
+
+    # Format with milliseconds and timezone offset
+    return local_time.strftime("%Y-%m-%dT%H:%M:%S.%f")[:-4] + local_time.strftime("%z")[:3] + ":" + local_time.strftime("%z")[3:]
 
 # --- Cleanup functions ---
 
@@ -261,7 +275,7 @@ def build_sitemap():
                     location = location[:-10]
 
                 ET.SubElement(url, "loc").text = location
-                ET.SubElement(url, "lastmod").text = time.strftime("%Y-%m-%dT%H:%M:%S%z", time.gmtime(os.path.getmtime(file_path)))
+                ET.SubElement(url, "lastmod").text = get_iso_timestamp(file_path)
                 ET.SubElement(url, "priority").text = "0.50" if is_image else "0.80"
 
     # Find the root element and set its priority to 1.00
